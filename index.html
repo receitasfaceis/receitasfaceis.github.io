@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>50 Receitas Fáceis para Quem Usa Mounjaro®</title>
+<meta name="description" content="50 receitas brasileiras, leves e cheias de proteína, pensadas para quem come pouco. Com cardápio de 7 dias, lista de compras e tabela de proteína.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   CONFIGURAÇÃO: troque o link do checkout e os preços aqui e nos
+   textos marcados com data-preco (busque por "R$").
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --papel:#FBF7F1; --creme:#F3EADF; --tinta:#2B2420; --suave:#6E625A; --linha:#E7DDD0;
+  --terra:#B5482E; --terra-esc:#8F3520; --verde:#5E8B63;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Nunito Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--papel);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.6;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.estreito{max-width:720px}
+section{padding:72px 0}
+h1,h2,h3{font-family:var(--serif);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:clamp(30px,5vw,44px);font-weight:800;margin-bottom:18px}
+h2 em{font-style:italic;color:var(--terra);font-weight:700}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
+.lead{font-family:var(--serif);font-style:italic;font-size:20px;color:#4A3F38;line-height:1.5}
+p+p{margin-top:14px}
+
+/* botão */
+.cta{display:inline-flex;flex-direction:column;align-items:center;gap:2px;background:var(--terra);color:#fff;text-decoration:none;
+  font-weight:800;font-size:18px;padding:18px 34px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(181,72,46,.7);
+  transition:transform .15s,background .15s;text-align:center}
+.cta small{font-weight:600;font-size:12.5px;opacity:.9;letter-spacing:.02em}
+.cta:hover{background:var(--terra-esc);transform:translateY(-2px)}
+.cta:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+.selos{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13.5px;color:var(--suave);font-weight:700}
+.selos span::before{content:"✓ ";color:var(--verde)}
+
+/* barra topo */
+.topo{background:var(--tinta);color:#F6EDE1;text-align:center;font-size:13.5px;font-weight:700;padding:9px 16px;letter-spacing:.02em}
+.topo b{color:#F3C98B}
+
+/* hero */
+.hero{padding:48px 0 64px;background:linear-gradient(180deg,var(--creme),var(--papel));overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(40px,6.6vw,68px);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--terra)}
+.hero .sub{font-size:19px;margin:20px 0 28px;color:#3B322D;max-width:34em}
+.hero .sub b{color:var(--tinta)}
+.livro{perspective:1400px;display:flex;justify-content:center}
+.livro img{width:min(360px,80vw);border-radius:3px 8px 8px 3px;transform:rotateY(-14deg) rotateX(2deg);
+  box-shadow:-2px 0 0 #d9cbb8 inset,22px 30px 50px -18px rgba(43,36,32,.55),4px 4px 0 #e9dfd1,8px 8px 0 #ddd1c1;transition:transform .5s}
+.livro img:hover{transform:rotateY(-6deg)}
+.pill{display:inline-block;background:#fff;border:1px solid var(--linha);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:800;color:var(--terra);margin-bottom:18px}
+
+/* dor */
+.dor{background:var(--tinta);color:#F6EDE1}
+.dor .kicker{color:#F3C98B}
+.dor h2 em{color:#F3C98B}
+.dores{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:30px 0}
+.dores div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:18px 20px;font-size:16.5px}
+.dores b{display:block;font-family:var(--serif);font-size:19px;color:#fff;margin-bottom:4px}
+.dor .fecho{font-family:var(--serif);font-size:23px;font-style:italic;color:#F3C98B}
+
+/* mecanismo */
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.tres div{border-top:2px solid var(--tinta);padding-top:14px}
+.tres .n{font-family:var(--serif);font-style:italic;font-size:34px;color:var(--terra);line-height:1}
+.tres h3{font-size:21px;margin:8px 0 6px}
+.tres p{font-size:15.5px;color:#3B322D}
+
+/* receitas */
+.receitas{background:var(--creme)}
+.grade-rec{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.grade-rec figure{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(43,36,32,.06)}
+.grade-rec img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.grade-rec figcaption{padding:10px 12px 12px;font-weight:700;font-size:14.5px;line-height:1.3}
+.grade-rec figcaption span{display:block;font-weight:600;font-size:12.5px;color:var(--terra);margin-top:3px}
+.caps{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.caps span{background:#fff;border:1px solid var(--linha);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:700}
+.caps b{color:var(--terra)}
+
+/* por dentro */
+.paginas{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px;align-items:start}
+.paginas figure img{border-radius:6px;box-shadow:0 18px 36px -18px rgba(43,36,32,.45);border:1px solid var(--linha)}
+.paginas figcaption{font-size:14.5px;color:var(--suave);margin-top:12px;text-align:center;font-weight:600}
+.paginas figure:nth-child(2){transform:translateY(-18px)}
+
+/* lista do que vem */
+.inclui{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin-top:26px}
+.inclui li{list-style:none;padding-left:30px;position:relative;font-size:16.5px}
+.inclui li::before{content:"✓";position:absolute;left:0;top:0;width:21px;height:21px;border-radius:50%;background:var(--verde);color:#fff;
+  font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:3px}
+
+/* bônus */
+.bonus{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.bonus article{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:24px}
+.bonus .tag{font-size:11.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
+.bonus h3{font-size:22px;margin:8px 0}
+.bonus p{font-size:15px;color:#3B322D}
+.bonus .valor{margin-top:12px;font-size:14px;color:var(--suave)}
+.bonus .valor s{margin-right:6px}
+.bonus .valor b{color:var(--verde)}
+
+/* para quem */
+.quem{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:28px}
+.quem > div{border-radius:16px;padding:26px}
+.sim{background:#E6EFE4}.nao{background:#F6E6E1}
+.quem h3{font-size:22px;margin-bottom:12px}
+.quem li{list-style:none;padding-left:26px;position:relative;margin-bottom:9px;font-size:16px}
+.sim li::before{content:"✓";position:absolute;left:0;color:var(--verde);font-weight:800}
+.nao li::before{content:"✕";position:absolute;left:0;color:var(--terra);font-weight:800}
+
+/* depoimentos (preencher com depoimentos reais) */
+.depo{display:none}
+
+/* oferta */
+.oferta{background:var(--tinta);color:#F6EDE1}
+.caixa{background:var(--papel);color:var(--tinta);border-radius:22px;padding:34px;max-width:560px;margin:30px auto 0;text-align:center;
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.caixa .de{color:var(--suave);font-size:16px}
+.caixa .por{font-family:var(--serif);font-weight:800;font-size:64px;line-height:1;color:var(--terra);margin:6px 0}
+.caixa .por small{font-size:24px;vertical-align:top;margin-right:4px}
+.caixa .parc{font-weight:700;color:#3B322D;margin-bottom:22px}
+.caixa .lote{background:#FBEFD9;border:1px dashed #D9912B;border-radius:12px;padding:10px 14px;font-size:14.5px;margin:-8px 0 22px;color:#6B4A12}
+.caixa .parc-grande{font-family:var(--serif);font-weight:800;font-size:54px;line-height:1;color:var(--terra);margin:6px 0 4px}
+.caixa .parc-grande small{font-size:22px;font-weight:700;color:var(--tinta);margin-right:4px}
+.contador{background:var(--tinta);color:#fff;border-radius:14px;padding:14px 12px 12px;margin:-4px 0 22px}
+.ct-t{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#F3C98B;margin-bottom:8px}
+.ct-n{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ct-n div{background:rgba(255,255,255,.08);border-radius:10px;padding:8px 0}
+.ct-n b{display:block;font-family:var(--serif);font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.ct-n span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+.caixa ul{text-align:left;margin:0 auto 26px;max-width:400px}
+.caixa li{list-style:none;padding:8px 0 8px 28px;border-bottom:1px solid var(--linha);position:relative;font-size:15.5px}
+.caixa li::before{content:"✓";position:absolute;left:0;color:var(--verde);font-weight:800}
+.caixa li s{color:var(--suave);font-size:13px;margin-left:4px}
+.caixa .cta{width:100%}
+.caixa .selos{justify-content:center}
+
+/* garantia */
+.garantia{display:flex;gap:28px;align-items:center;background:#fff;border:1px solid var(--linha);border-radius:20px;padding:30px}
+.selo-g{flex:none;width:118px;height:118px;border-radius:50%;background:var(--verde);color:#fff;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;font-weight:800;text-align:center;line-height:1.05;box-shadow:0 0 0 6px #E6EFE4}
+.selo-g b{font-family:var(--serif);font-size:42px}
+.selo-g span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--linha);padding:18px 0}
+.faq summary{cursor:pointer;font-family:var(--serif);font-size:20px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";color:var(--terra);font-size:26px;line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:10px;color:#3B322D;font-size:16px}
+
+/* final */
+.final{text-align:center;background:var(--creme)}
+.rodape{background:var(--tinta);color:rgba(246,237,225,.65);font-size:12.5px;padding:30px 0;text-align:center;line-height:1.6}
+.rodape p{max-width:760px;margin:0 auto}
+
+/* cta fixo mobile */
+.fixo{display:none}
+
+@media (max-width:820px){
+  body{font-size:16px}
+  section{padding:56px 0}
+  .hero{padding:28px 0 48px}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .hero-grid .livro{order:-1}
+  .livro img{width:min(250px,64vw)}
+  .hero .sub{font-size:17px}
+  .dores,.tres,.inclui,.quem,.bonus{grid-template-columns:1fr}
+  .grade-rec{grid-template-columns:1fr 1fr;gap:10px}
+  .paginas{grid-template-columns:1fr 1fr}
+  .paginas figure:nth-child(2){transform:none}
+  .paginas figure:nth-child(3){display:none}
+  .cta{width:100%;padding:17px 20px}
+  .garantia{flex-direction:column;text-align:center}
+  .caixa{padding:26px 20px}
+  .caixa .por{font-size:54px}
+  .fixo{display:block;position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(251,247,241,.96);backdrop-filter:blur(6px);border-top:1px solid var(--linha);z-index:10;
+    transform:translateY(110%);transition:transform .25s}
+  .fixo.on{transform:none}
+  .fixo .cta{font-size:16px;padding:13px}
+  .rodape{padding-bottom:96px}
+}
+</style>
+</head>
+<body>
+
+<div class="topo"><span id="topo-lote" hidden>🔥 Preço de lançamento acaba em <b class="ct-curto">--</b> · depois <b class="p-depois"></b> · </span>Acesso imediato · <b>+ 3 bônus</b> inclusos</div>
+
+<!-- ───────────── HERO ───────────── -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill">Para quem usa canetas emagrecedoras</span>
+      <h1><em>50</em> receitas fáceis para quem usa Mounjaro<sup style="font-size:.4em">®</sup></h1>
+      <p class="sub">Comida brasileira de verdade, <b>em porções que cabem no seu novo apetite</b>: leve, cheia de proteína e pronta em minutos. Tem cuscuz, tapioca, PF, strogonoff, moqueca e brigadeiro.</p>
+      <a class="cta" href="#oferta">Quero as 50 receitas<small>Acesso imediato · PDF para celular e computador</small></a>
+      <div class="selos"><span>Garantia de 7 dias</span><span>Pix ou até <span class="n-parc">8</span>x no cartão</span><span>Receitas com foto</span></div>
+    </div>
+    <div class="livro"><img src="img/capa.jpg" alt="Capa do livro 50 Receitas Fáceis para Quem Usa Mounjaro" width="900" height="1273"></div>
+  </div>
+</header>
+
+<!-- ───────────── DOR ───────────── -->
+<section class="dor">
+  <div class="wrap">
+    <div class="kicker">Parece familiar?</div>
+    <h2>A fome mudou. <em>E agora, o que eu como?</em></h2>
+    <div class="dores">
+      <div><b>O prato parece enorme</b>Três garfadas e você já está satisfeito. O resto vai para o lixo, ou vira desconforto.</div>
+      <div><b>O enjoo aparece</b>O cheiro de comida incomoda, e aquilo que você sempre gostou agora não desce.</div>
+      <div><b>Você come quase nada</b>E fica com medo de estar perdendo músculo junto com a gordura.</div>
+      <div><b>O intestino travou</b>Pouca comida, pouca fibra, pouca água. A conta chega.</div>
+      <div><b>Não dá vontade de cozinhar</b>Sem fome, fazer comida parece um esforço sem sentido.</div>
+      <div><b>A internet só ensina receita gringa</b>Ninguém mostra como adaptar o arroz com feijão de todo dia.</div>
+    </div>
+    <p class="fecho">Você não precisa comer mais. Precisa que cada garfada valha mais.</p>
+  </div>
+</section>
+
+<!-- ───────────── MECANISMO ───────────── -->
+<section>
+  <div class="wrap">
+    <div class="kicker">O método do livro</div>
+    <h2>Três princípios em <em>cada receita</em></h2>
+    <p class="lead estreito">Com menos apetite, a qualidade do que entra no prato passa a pesar muito mais. Todas as 50 receitas foram pensadas assim:</p>
+    <div class="tres">
+      <div><div class="n">1</div><h3>Proteína primeiro</h3><p>Frango, ovos, peixe, carne magra e iogurte em todas as refeições. Cada receita mostra quantos gramas de proteína entrega por porção.</p></div>
+      <div><div class="n">2</div><h3>Porção pequena, preparo leve</h3><p>Pouca gordura, nada de fritura e porções do tamanho do seu novo apetite. Forno, airfryer, panela única.</p></div>
+      <div><div class="n">3</div><h3>Fácil de verdade</h3><p>Ingredientes de supermercado, passo a passo curto e várias receitas que congelam. Cozinhe no domingo e a semana está resolvida.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── RECEITAS ───────────── -->
+<section class="receitas">
+  <div class="wrap">
+    <div class="kicker">O que tem dentro</div>
+    <h2>50 receitas brasileiras, <em>todas com foto</em></h2>
+    <p class="lead estreito">Do café da manhã à sobremesa, com tempo de preparo, rendimento, proteína e calorias de cada porção.</p>
+    <div class="grade-rec">
+      <figure><img src="img/r08.jpg" alt="Cuscuz nordestino com ovo" loading="lazy"><figcaption>Cuscuz nordestino com ovo<span>16 g de proteína · 15 min</span></figcaption></figure>
+      <figure><img src="img/r21.jpg" alt="PF com arroz, feijão e bife acebolado" loading="lazy"><figcaption>PF na medida: arroz, feijão e bife<span>27 g de proteína · 25 min</span></figcaption></figure>
+      <figure><img src="img/r16.jpg" alt="Strogonoff de frango leve" loading="lazy"><figcaption>Strogonoff de frango leve<span>32 g de proteína · 25 min</span></figcaption></figure>
+      <figure><img src="img/r42.jpg" alt="Brigadeiro de colher proteico" loading="lazy"><figcaption>Brigadeiro de colher proteico<span>15 g de proteína · 10 min</span></figcaption></figure>
+      <figure><img src="img/r04.jpg" alt="Crepioca de frango" loading="lazy"><figcaption>Crepioca de frango<span>26 g de proteína · 10 min</span></figcaption></figure>
+      <figure><img src="img/r22.jpg" alt="Moqueca leve de peixe" loading="lazy"><figcaption>Moqueca leve de peixe<span>26 g de proteína · 30 min</span></figcaption></figure>
+      <figure><img src="img/r12.jpg" alt="Escondidinho de batata-doce com frango" loading="lazy"><figcaption>Escondidinho de batata-doce<span>27 g de proteína · congela bem</span></figcaption></figure>
+      <figure><img src="img/r46.jpg" alt="Açaí proteico na tigela" loading="lazy"><figcaption>Açaí proteico na tigela<span>15 g de proteína · 5 min</span></figcaption></figure>
+    </div>
+    <div class="caps">
+      <span><b>10</b> cafés da manhã</span><span><b>15</b> almoços e jantares</span><span><b>7</b> sopas para os dias de enjoo</span>
+      <span><b>8</b> lanches</span><span><b>6</b> sobremesas</span><span><b>4</b> bebidas</span>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── POR DENTRO ───────────── -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Por dentro do livro</div>
+    <h2>Bonito de ler, <em>fácil de seguir</em></h2>
+    <p class="lead estreito">Uma receita por página, com foto, ingredientes com as quantidades em destaque e o modo de preparo numerado. Abra no celular e cozinhe.</p>
+    <div class="paginas">
+      <figure><img src="img/pag-cuscuz.jpg" alt="Página da receita de cuscuz nordestino" loading="lazy"><figcaption>Uma receita por página</figcaption></figure>
+      <figure><img src="img/pag-regras.jpg" alt="Página com as 8 regras de ouro" loading="lazy"><figcaption>As 8 regras de ouro para comer com pouco apetite</figcaption></figure>
+      <figure><img src="img/pag-pf.jpg" alt="Página do PF na medida" loading="lazy"><figcaption>Proteína e calorias de cada porção</figcaption></figure>
+    </div>
+    <ul class="inclui">
+      <li>Guia para <b>comer bem com o seu novo apetite</b></li>
+      <li>Página especial para os <b>dias de enjoo</b>, com o que ajuda e o que piora</li>
+      <li>Etiquetas: <b>até 15 min, sem fogão, congela bem, airfryer</b></li>
+      <li>Receita-base de frango para <b>cozinhar uma vez e usar a semana toda</b></li>
+      <li>Quando procurar o médico: <b>sinais de alerta</b> explicados</li>
+      <li>Leitura no <b>celular, tablet ou computador</b>, e dá para imprimir</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ───────────── BÔNUS ───────────── -->
+<section class="receitas">
+  <div class="wrap">
+    <div class="kicker">Você também recebe</div>
+    <h2>3 bônus <em>já inclusos</em></h2>
+    <div class="bonus">
+      <article><div class="tag">Bônus 1</div><h3>Cardápio de 7 dias</h3><p>Uma semana inteira montada com as receitas do livro, do café ao jantar, com dica de preparo no domingo.</p><div class="valor"><b>✓ incluso no livro</b></div></article>
+      <article><div class="tag">Bônus 2</div><h3>Lista de compras base</h3><p>A despensa que faz quase todas as receitas do livro, organizada por seção do mercado, para marcar e levar.</p><div class="valor"><b>✓ incluso no livro</b></div></article>
+      <article><div class="tag">Bônus 3</div><h3>Onde está a proteína</h3><p>Tabela visual com a proteína dos alimentos do dia a dia, para montar refeições e lanches sem conta difícil.</p><div class="valor"><b>✓ incluso no livro</b></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── PARA QUEM ───────────── -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Para quem é</div>
+    <h2>Este livro é <em>para você</em> se…</h2>
+    <div class="quem">
+      <div class="sim"><h3>É para você</h3><ul>
+        <li>Usa Mounjaro<sup>®</sup>, Ozempic<sup>®</sup>, Wegovy<sup>®</sup> ou outra caneta da mesma classe</li>
+        <li>Está com pouca fome e não sabe o que comer</li>
+        <li>Quer garantir proteína mesmo comendo pouco</li>
+        <li>Gosta de comida brasileira e de receita simples</li>
+        <li>Quer cozinhar uma vez e comer a semana toda</li>
+      </ul></div>
+      <div class="nao"><h3>Não é para você</h3><ul>
+        <li>Procura dieta milagrosa ou promessa de quilos perdidos</li>
+        <li>Quer substituir o acompanhamento do médico ou nutricionista</li>
+        <li>Busca informação sobre dose do medicamento</li>
+        <li>Prefere receitas elaboradas, de restaurante</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── DEPOIMENTOS: use apenas depoimentos reais, com autorização. Remova o display:none em .depo ───────────── -->
+<section class="depo">
+  <div class="wrap"><div class="kicker">Quem já está usando</div><h2>O que dizem os leitores</h2></div>
+</section>
+
+<!-- ───────────── OFERTA ───────────── -->
+<section class="oferta" id="oferta">
+  <div class="wrap">
+    <div class="kicker" style="text-align:center;color:#F3C98B" id="kicker-oferta">Oferta de lançamento</div>
+    <h2 style="text-align:center">Tudo o que você recebe <em style="color:#F3C98B">hoje</em></h2>
+    <div class="caixa">
+      <div class="contador" id="contador" hidden>
+        <div class="ct-t">O preço de lançamento acaba em</div>
+        <div class="ct-n"><div><b data-u="d">0</b><span>dias</span></div><div><b data-u="h">00</b><span>horas</span></div><div><b data-u="m">00</b><span>min</span></div><div><b data-u="s">00</b><span>seg</span></div></div>
+      </div>
+      <ul>
+        <li>Livro <b>50 Receitas Fáceis</b> (67 páginas, todas com foto)</li>
+        <li>Bônus 1: Cardápio de 7 dias</li>
+        <li>Bônus 2: Lista de compras base</li>
+        <li>Bônus 3: Tabela Onde está a proteína</li>
+        <li>Guia dos dias de enjoo e 8 regras de ouro</li>
+      </ul>
+      <div class="de" id="rotulo-preco">Preço de lançamento</div>
+      <div class="por" id="preco-principal"><small>R$</small><span class="p-num">37</span></div>
+      <div class="parc" id="preco-secundario">à vista no Pix · ou em até <span class="n-parc">8</span>x no cartão</div>
+      <div class="lote" id="caixa-lote" hidden>Este preço vale até <b class="fim-data"></b>. Depois, passa para <b class="p-depois"></b>.</div>
+      <!-- o link do checkout é definido em CONFIG, no script do fim da página -->
+      <a class="cta" id="link-checkout" href="#">Quero as 50 receitas agora<small>Acesso imediato no seu e-mail</small></a>
+      <div class="selos"><span>Compra segura</span><span>Pix ou cartão</span><span>Garantia de 7 dias</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── GARANTIA ───────────── -->
+<section>
+  <div class="wrap estreito">
+    <div class="garantia">
+      <div class="selo-g"><b>7</b><span>dias de<br>garantia</span></div>
+      <div>
+        <h3 style="font-size:26px;margin-bottom:8px">Teste por 7 dias, sem risco</h3>
+        <p>Baixe, leia e cozinhe. Se por qualquer motivo o livro não for para você, peça o reembolso dentro de 7 dias pela própria plataforma de pagamento e receba 100% do valor de volta. Sem perguntas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── FAQ ───────────── -->
+<section class="faq" style="padding-top:0">
+  <div class="wrap estreito">
+    <div class="kicker">Dúvidas frequentes</div>
+    <h2>Perguntas <em>frequentes</em></h2>
+    <details><summary>Serve para quem usa Ozempic®, Wegovy® ou outra caneta?</summary><p>Sim. As receitas foram pensadas para quem está com o apetite reduzido pelos medicamentos da classe dos agonistas de GLP-1, como Mounjaro®, Ozempic® e Wegovy®. Elas também servem para qualquer pessoa que queira comer menos com mais proteína.</p></details>
+    <details><summary>Como eu recebo o livro?</summary><p>Logo após a confirmação do pagamento, você recebe no seu e-mail o acesso para baixar o PDF. No Pix, a liberação costuma ser em poucos minutos.</p></details>
+    <details><summary>É um livro físico?</summary><p>Não. É um livro digital em PDF, para ler no celular, no tablet ou no computador. Se preferir, você pode imprimir.</p></details>
+    <details><summary>Preciso comprar ingredientes caros ou whey?</summary><p>Não. As receitas usam ingredientes de supermercado comum. Algumas poucas usam whey protein, mas a grande maioria não precisa dele.</p></details>
+    <details><summary>O livro substitui o nutricionista?</summary><p>Não. O livro é um guia prático de receitas e hábitos, e não substitui o acompanhamento do seu médico e do seu nutricionista. Ele é ótimo para levar para a consulta e ajustar com o profissional.</p></details>
+    <details><summary>Fala sobre dose do medicamento?</summary><p>Não. Dose e ajustes do tratamento são sempre definidos pelo seu médico. O livro trata só da alimentação.</p></details>
+    <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Peça o reembolso pela plataforma de pagamento e recebe 100% do valor.</p></details>
+  </div>
+</section>
+
+<!-- ───────────── FINAL ───────────── -->
+<section class="final">
+  <div class="wrap estreito">
+    <h2>Menos comida, <em>mais cuidado em cada prato</em></h2>
+    <p class="lead" style="margin-bottom:26px">50 receitas brasileiras, 3 bônus e garantia de 7 dias, por <span class="p-avista">R$ 37</span>.</p>
+    <a class="cta" href="#oferta">Quero as 50 receitas<small>Acesso imediato</small></a>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="wrap">
+    <p>Este material tem caráter informativo e não substitui orientação médica ou nutricional individualizada. Resultados variam de pessoa para pessoa. Valores nutricionais são estimativas.</p>
+    <p style="margin-top:10px">Mounjaro® é marca registrada da Eli Lilly and Company. Ozempic® e Wegovy® são marcas registradas da Novo Nordisk A/S. Este material é independente e não possui vínculo com os fabricantes.</p>
+  </div>
+</footer>
+
+<div class="fixo" id="fixo"><a class="cta" href="#oferta">Quero as 50 receitas · <span class="p-curto">R$ 37</span></a></div>
+
+<script>
+/* ════════════════════ CONFIGURAÇÃO DE PREÇO ════════════════════
+   PRECO_AVISTA  preço atual (igual ao do checkout)
+   PARCELA_12X   valor EXATO da parcela em 12x mostrado no seu checkout
+                 (com os juros da plataforma). Ex.: "3,72". Deixe "" para
+                 mostrar só "em até 12x".
+   FIM_LOTE      data/hora em que o preço de lançamento acaba. Deixe "" para
+                 não mostrar urgência. Só use se for subir o preço de verdade.
+   PRECO_DEPOIS  preço após o lançamento (lembre de mudar no checkout também)
+   PARCELA_DEPOIS parcela em 12x do preço novo, se souber.
+   MODO          "visita": cada visitante tem MINUTOS_VISITA de preço promocional;
+                  depois disso o preço SOBE de verdade para ele (página e checkout).
+                  "lote": um prazo único para todos, em FIM_LOTE.
+                  "": sem contador.
+   CHECKOUT_PROMO   link do checkout com o preço promocional (R$ 37)
+   CHECKOUT_NORMAL  link do checkout com o preço cheio (R$ 47) */
+var CONFIG = {
+  MODO: "visita",
+  MINUTOS_VISITA: 40,
+  FIM_LOTE: "2026-10-05T23:59:00-03:00",
+  PRECO_AVISTA: 37,
+  PARCELAS: 8,             // máximo de parcelas que a Kiwify libera para R$ 37
+  PARCELA_12X: "5,38",     // valor exato da parcela no checkout (8x de R$ 5,38)
+  PRECO_DEPOIS: 47,
+  PARCELAS_DEPOIS: 11,     // R$ 47 parcela em até 11x
+  PARCELA_DEPOIS: "5,22",
+  CHECKOUT_PROMO: "https://pay.kiwify.com.br/OX1HIam",
+  CHECKOUT_NORMAL: "https://pay.kiwify.com.br/06m8Y7B"
+};
+(function () {
+  var brl = function (v) { return "R$ " + String(v).replace(".", ","); };
+  var fim = null;
+  if (CONFIG.MODO === "lote" && CONFIG.FIM_LOTE) fim = new Date(CONFIG.FIM_LOTE);
+  if (CONFIG.MODO === "visita") {
+    // o início fica salvo no navegador: recarregar a página NÃO reinicia o prazo
+    var inicio = null;
+    try { inicio = parseInt(localStorage.getItem("oferta_inicio"), 10) || null; } catch (e) {}
+    if (!inicio) { inicio = Date.now(); try { localStorage.setItem("oferta_inicio", inicio); } catch (e) {} }
+    fim = new Date(inicio + CONFIG.MINUTOS_VISITA * 60000);
+  }
+  var lote = fim && new Date() < fim;
+  var encerrado = fim && !lote;
+  var preco = encerrado ? CONFIG.PRECO_DEPOIS : CONFIG.PRECO_AVISTA;
+  var parcela = encerrado ? CONFIG.PARCELA_DEPOIS : CONFIG.PARCELA_12X;
+  var nParc = encerrado ? CONFIG.PARCELAS_DEPOIS : CONFIG.PARCELAS;
+  var q = function (sel) { return document.querySelectorAll(sel); };
+  q(".n-parc").forEach(function (el) { el.textContent = nParc; });
+  q(".p-avista, .p-curto").forEach(function (el) { el.textContent = brl(preco); });
+  q(".p-depois").forEach(function (el) { el.textContent = brl(CONFIG.PRECO_DEPOIS); });
+  document.getElementById("link-checkout").href = encerrado ? CONFIG.CHECKOUT_NORMAL : CONFIG.CHECKOUT_PROMO;
+  if (CONFIG.MODO === "visita") {
+    q(".ct-t").forEach(function (el) { el.textContent = "Seu desconto de lançamento expira em"; });
+    document.getElementById("caixa-lote").innerHTML = "Depois que o tempo acabar, o preço volta para <b>" + brl(CONFIG.PRECO_DEPOIS) + "</b>.";
+    var tl = document.getElementById("topo-lote");
+    tl.innerHTML = "🔥 Seu desconto expira em <b class=\"ct-curto\">--</b> · depois " + brl(CONFIG.PRECO_DEPOIS) + " · ";
+  }
+  if (fim && CONFIG.MODO === "lote") {
+    var d = fim.toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "2-digit" });
+    q(".fim-data").forEach(function (el) { el.textContent = d; });
+  }
+  document.getElementById("topo-lote").hidden = !lote;
+  document.getElementById("caixa-lote").hidden = !lote;
+  if (!lote) {
+    document.getElementById("rotulo-preco").textContent = "Por apenas";
+    document.getElementById("kicker-oferta").textContent = "Oferta especial";
+  }
+  if (lote) {
+    var box = document.getElementById("contador"), curto = q(".ct-curto");
+    box.hidden = false;
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    var tick = function () {
+      var ms = fim - new Date();
+      if (ms <= 0) { location.reload(); return; }   // acabou: recarrega já com o preço e o checkout novos        // acabou: recarrega já com o preço novo
+      var s = Math.floor(ms / 1000), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600),
+          m = Math.floor(s % 3600 / 60), ss = s % 60;
+      box.querySelector('[data-u="d"]').textContent = d;
+      box.querySelector('[data-u="d"]').parentNode.hidden = !d;
+      box.querySelector('.ct-n').style.gridTemplateColumns = d ? "repeat(4,1fr)" : "repeat(3,1fr)";
+      box.querySelector('[data-u="h"]').textContent = pad(h);
+      box.querySelector('[data-u="m"]').textContent = pad(m);
+      box.querySelector('[data-u="s"]').textContent = pad(ss);
+      curto.forEach(function (el) { el.textContent = (d ? d + "d " : "") + pad(h) + ":" + pad(m) + ":" + pad(ss); });
+    };
+    tick(); setInterval(tick, 1000);
+  }
+  var principal = document.getElementById("preco-principal"), sec = document.getElementById("preco-secundario");
+  if (parcela) {
+    // parcela em destaque, à vista embaixo
+    principal.className = "parc-grande";
+    principal.innerHTML = "<small>" + nParc + "x de </small>R$ " + parcela;
+    sec.textContent = "ou " + brl(preco) + " à vista no Pix";
+    q(".p-curto").forEach(function (el) { el.textContent = nParc + "x de R$ " + parcela; });
+  } else {
+    principal.querySelector(".p-num").textContent = preco;
+  }
+})();
+
+// barra de compra fixa no celular: aparece depois do hero e some sobre a oferta
+(function () {
+  var fixo = document.getElementById('fixo'), hero = document.querySelector('.hero'), oferta = document.getElementById('oferta');
+  if (!('IntersectionObserver' in window)) return;
+  var heroVisivel = true, ofertaVisivel = false;
+  function atualiza() { fixo.classList.toggle('on', !heroVisivel && !ofertaVisivel); }
+  new IntersectionObserver(function (e) { heroVisivel = e[0].isIntersecting; atualiza(); }).observe(hero);
+  new IntersectionObserver(function (e) { ofertaVisivel = e[0].isIntersecting; atualiza(); }).observe(oferta);
+})();
+</script>
+</body>
+</html>
