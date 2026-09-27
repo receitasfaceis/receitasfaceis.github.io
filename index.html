@@ -170,6 +170,7 @@ p+p{margin-top:14px}
 .caixa{background:var(--papel);color:var(--tinta);border-radius:22px;padding:34px;max-width:560px;margin:30px auto 0;text-align:center;
   box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
 .caixa .de{color:var(--suave);font-size:16px}
+.caixa .de s{color:var(--terra);font-weight:800;font-size:19px}
 .caixa .por{font-family:var(--serif);font-weight:800;font-size:64px;line-height:1;color:var(--terra);margin:6px 0}
 .caixa .por small{font-size:24px;vertical-align:top;margin-right:4px}
 .caixa .parc{font-weight:700;color:#3B322D;margin-bottom:22px}
@@ -558,6 +559,8 @@ var CONFIG = {
     document.getElementById("kicker-oferta").textContent = "Oferta especial";
   }
   if (lote) {
+    // âncora verdadeira: PRECO_DEPOIS é o preço cobrado de fato no CHECKOUT_NORMAL quando o tempo acaba
+    document.getElementById("rotulo-preco").innerHTML = "De <s>" + brl(CONFIG.PRECO_DEPOIS) + "</s> por apenas";
     var box = document.getElementById("contador"), curto = q(".ct-curto");
     box.hidden = false;
     var pad = function (n) { return (n < 10 ? "0" : "") + n; };
