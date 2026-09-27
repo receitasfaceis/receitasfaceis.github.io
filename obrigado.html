@@ -14,6 +14,18 @@
 fbq('set','autoConfig',false,'2507705416387792');
 fbq('init','2507705416387792');
 fbq('track','PageView');
+// A Kiwify só redireciona para cá depois do pagamento APROVADO (cartão ou Pix).
+// Compra registrada aqui porque o pixel da Kiwify (go.kiwify.com.br) não chega na Meta.
+// Uma vez por navegador a cada 30 min, para recarregar a página não contar em dobro.
+(function(){
+  var k='compra_registrada', agora=Date.now(), ult=0;
+  try{ ult=parseInt(localStorage.getItem(k),10)||0; }catch(e){}
+  if(agora-ult<30*60000) return;
+  try{ localStorage.setItem(k,agora); }catch(e){}
+  var inicio=0; try{ inicio=parseInt(localStorage.getItem('oferta_inicio'),10)||0; }catch(e){}
+  var promo = inicio && agora-inicio < 40*60000 + 30*60000; // passou pela landing com o desconto ativo (margem do tempo de checkout)
+  fbq('track','Purchase',{value: promo?37:47, currency:'BRL', content_name:'50 Receitas Fáceis', content_type:'product'},{eventID:'obg-'+agora});
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2507705416387792&ev=PageView&noscript=1"/></noscript>
 </head>
