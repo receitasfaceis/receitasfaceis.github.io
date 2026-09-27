@@ -96,6 +96,13 @@ p+p{margin-top:14px}
 .paginas figure img{border-radius:6px;box-shadow:0 18px 36px -18px rgba(43,36,32,.45);border:1px solid var(--linha)}
 .paginas figcaption{font-size:14.5px;color:var(--suave);margin-top:12px;text-align:center;font-weight:600}
 .paginas figure:nth-child(2){transform:translateY(-18px)}
+.paginas a{display:block;position:relative;cursor:zoom-in}
+.paginas a::after{content:"🔍 Ampliar";position:absolute;right:8px;bottom:8px;background:rgba(43,36,32,.82);color:#fff;font-size:11px;font-weight:800;padding:4px 9px;border-radius:999px}
+.dica-zoom{text-align:center;font-size:14px;color:var(--suave);margin-top:14px;font-weight:600}
+#zoom{position:fixed;inset:0;background:rgba(20,16,14,.94);z-index:50;display:none;overflow:auto;-webkit-overflow-scrolling:touch}
+#zoom.aberto{display:block}
+#zoom img{display:block;width:min(900px,100%);margin:0 auto;padding:56px 0 24px}
+#zoom button{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--tinta);font-size:22px;font-weight:800;cursor:pointer}
 
 /* lista do que vem */
 .inclui{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin-top:26px}
@@ -284,10 +291,11 @@ fbq('track','PageView');
     <h2>Bonito de ler, <em>fácil de seguir</em></h2>
     <p class="lead estreito">Uma receita por página, com foto, ingredientes com as quantidades em destaque e o modo de preparo numerado. Abra no celular e cozinhe.</p>
     <div class="paginas">
-      <figure><img src="img/pag-cuscuz.jpg" alt="Página da receita de cuscuz nordestino" loading="lazy"><figcaption>Uma receita por página</figcaption></figure>
-      <figure><img src="img/pag-regras.jpg" alt="Página com as 8 regras de ouro" loading="lazy"><figcaption>As 8 regras de ouro para comer com pouco apetite</figcaption></figure>
-      <figure><img src="img/pag-pf.jpg" alt="Página do PF na medida" loading="lazy"><figcaption>Proteína e calorias de cada porção</figcaption></figure>
+      <figure><a href="img/pag-cuscuz-hd.jpg"><img src="img/pag-cuscuz.jpg" alt="Página da receita de cuscuz nordestino" loading="lazy"></a><figcaption>Uma receita por página</figcaption></figure>
+      <figure><a href="img/pag-regras-hd.jpg"><img src="img/pag-regras.jpg" alt="Página com as 8 regras de ouro" loading="lazy"></a><figcaption>As 8 regras de ouro para comer com pouco apetite</figcaption></figure>
+      <figure><a href="img/pag-pf-hd.jpg"><img src="img/pag-pf.jpg" alt="Página do PF na medida" loading="lazy"></a><figcaption>Proteína e calorias de cada porção</figcaption></figure>
     </div>
+    <p class="dica-zoom">Toque numa página para ver em tamanho real.</p>
     <ul class="inclui">
       <li>Guia para <b>comer bem com o seu novo apetite</b></li>
       <li>Página especial para os <b>dias de enjoo</b>, com o que ajuda e o que piora</li>
@@ -525,6 +533,22 @@ var CONFIG = {
 document.getElementById("link-checkout").addEventListener("click",function(){
   if(window.fbq) fbq("track","InitiateCheckout",{value:parseFloat(this.href.indexOf("06m8Y7B")>-1?47:37),currency:"BRL"});
 });
+</script>
+<div id="zoom" role="dialog" aria-label="Página do livro ampliada"><button type="button" aria-label="Fechar">✕</button><img alt=""></div>
+<script>
+(function () {
+  var z = document.getElementById("zoom"), zi = z.querySelector("img");
+  function fecha() { z.classList.remove("aberto"); document.body.style.overflow = ""; }
+  document.querySelectorAll(".paginas a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      zi.src = a.href; zi.alt = a.querySelector("img").alt;
+      z.classList.add("aberto"); z.scrollTop = 0; document.body.style.overflow = "hidden";
+    });
+  });
+  z.addEventListener("click", function (e) { if (e.target !== zi) fecha(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") fecha(); });
+})();
 </script>
 </body>
 </html>
