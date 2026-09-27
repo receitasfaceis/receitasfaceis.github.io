@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teste de 1 minuto · O que comer quando a fome some?</title>
+<meta name="description" content="Responda 6 perguntas rápidas e descubra o seu perfil e as receitas que combinam com o seu novo apetite.">
+<meta property="og:title" content="O que comer quando a fome some? Faça o teste de 1 minuto">
+<meta property="og:description" content="6 perguntas rápidas e receitas brasileiras para o seu perfil.">
+<meta property="og:image" content="https://receitasfaceis.github.io/img/og-capa.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#FBF7F1; --creme:#F3EADF; --tinta:#2B2420; --suave:#6E625A; --linha:#E7DDD0;
+  --terra:#B5482E; --verde:#5E8B63; --cta:#1E9E4A; --cta-esc:#15803D;
+  --serif:'Playfair Display',Georgia,serif; --sans:'Nunito Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--papel);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+img{max-width:100%;display:block}
+.app{max-width:560px;margin:0 auto;padding:18px 18px 40px}
+.marca{text-align:center;font-family:var(--serif);font-weight:800;font-size:18px;color:var(--terra);margin-bottom:14px}
+.barra{height:8px;background:var(--linha);border-radius:99px;overflow:hidden;margin-bottom:6px}
+.barra i{display:block;height:100%;width:0;background:var(--cta);border-radius:99px;transition:width .4s ease}
+.passo{font-size:13px;font-weight:700;color:var(--suave);text-align:right;margin-bottom:18px;min-height:20px}
+.tela{display:none;animation:entra .35s ease}
+.tela.on{display:block}
+@keyframes entra{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+h1,h2{font-family:var(--serif);line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(32px,8vw,42px);font-weight:800}
+h1 em,h2 em{color:var(--terra);font-style:italic}
+h2{font-size:clamp(25px,6.4vw,31px);font-weight:800;margin-bottom:6px}
+.dica{color:var(--suave);font-size:15px;margin-bottom:18px}
+.capa-quiz{border-radius:18px;overflow:hidden;margin:18px 0;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.capa-quiz img{aspect-ratio:1;object-fit:cover;width:100%}
+.intro p{font-size:18px;color:#3B322D;margin:14px 0 6px}
+.mini{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;font-size:13.5px;color:var(--suave);font-weight:700;margin-top:12px}
+.opc{display:grid;gap:10px}
+.opc button{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--linha);border-radius:16px;
+  padding:15px 16px;font:700 16.5px var(--sans);color:var(--tinta);cursor:pointer;transition:border-color .15s,transform .1s,background .15s}
+.opc button:hover{border-color:#cbbba6}
+.opc button:active{transform:scale(.98)}
+.opc button .e{font-size:26px;line-height:1;flex:none;width:34px;text-align:center}
+.opc button.sel{border-color:var(--cta);background:#EEF8F1}
+.opc.multi button::after{content:"";margin-left:auto;flex:none;width:22px;height:22px;border-radius:6px;border:2px solid #cbbba6}
+.opc.multi button.sel::after{content:"✓";border-color:var(--cta);background:var(--cta);color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center}
+.cta{display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;background:var(--cta);color:#fff;text-decoration:none;border:0;cursor:pointer;
+  font:800 18px var(--sans);padding:17px 24px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(22,128,61,.8);animation:pulsa 2.2s ease-out infinite;text-align:center}
+.cta small{font-weight:600;font-size:12.5px;opacity:.92}
+.cta:hover{background:var(--cta-esc)}
+.cta[disabled]{opacity:.4;animation:none;cursor:default}
+@keyframes pulsa{0%{box-shadow:0 10px 24px -10px rgba(22,128,61,.8),0 0 0 0 rgba(30,158,74,.5)}70%{box-shadow:0 10px 24px -10px rgba(22,128,61,.8),0 0 0 16px rgba(30,158,74,0)}100%{box-shadow:0 10px 24px -10px rgba(22,128,61,.8),0 0 0 0 rgba(30,158,74,0)}}
+.continuar{margin-top:16px}
+.voltar{background:none;border:0;color:var(--suave);font:700 14px var(--sans);cursor:pointer;margin-top:14px;padding:6px}
+/* carregando */
+.carregando{text-align:center;padding-top:30px}
+.roda{width:64px;height:64px;border-radius:50%;border:6px solid var(--linha);border-top-color:var(--cta);margin:0 auto 22px;animation:gira 1s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+.etapas{list-style:none;text-align:left;max-width:320px;margin:22px auto 0}
+.etapas li{padding:7px 0 7px 30px;position:relative;color:var(--suave);font-weight:700;opacity:.35;transition:opacity .3s}
+.etapas li.ok{opacity:1;color:var(--tinta)}
+.etapas li.ok::before{content:"✓";position:absolute;left:0;color:var(--cta);font-weight:800}
+/* resultado */
+.selo{display:inline-block;background:#EEF8F1;color:var(--cta-esc);border:1px solid #bfe3cb;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:800;margin-bottom:12px}
+.perfil{background:var(--tinta);color:#F6EDE1;border-radius:20px;padding:22px 22px 20px;margin:16px 0}
+.perfil .k{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#F3C98B}
+.perfil h3{font-family:var(--serif);font-size:27px;margin:6px 0 8px;color:#fff}
+.perfil p{font-size:15.5px;opacity:.9}
+.resolve{list-style:none;margin:6px 0 18px}
+.resolve li{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:13px 14px 13px 46px;position:relative;margin-bottom:8px;font-size:15.5px}
+.resolve li::before{content:"✓";position:absolute;left:14px;top:13px;width:22px;height:22px;border-radius:50%;background:var(--cta);color:#fff;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.resolve b{display:block;font-size:16px}
+.titulo-rec{font-family:var(--serif);font-size:22px;font-weight:800;margin:22px 0 10px}
+.recs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.recs figure{background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--linha)}
+.recs img{aspect-ratio:1;object-fit:cover;width:100%}
+.recs figcaption{padding:7px 8px 9px;font-weight:800;font-size:12.5px;line-height:1.25}
+.recs figcaption span{display:block;color:var(--terra);font-weight:700;font-size:11.5px;margin-top:2px}
+.garantia{text-align:center;font-size:13.5px;color:var(--suave);font-weight:700;margin-top:12px}
+.aviso{font-size:12px;color:var(--suave);text-align:center;margin-top:26px;line-height:1.5}
+@media (prefers-reduced-motion:reduce){.tela,.cta,.roda{animation:none}}
+</style>
+<!-- Meta Pixel (sem coleta automática de metadados da página) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('set','autoConfig',false,'2507705416387792');
+fbq('init','2507705416387792');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2507705416387792&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+<main class="app">
+  <div class="marca">Receitas Fáceis</div>
+  <div class="barra"><i id="barra"></i></div>
+  <div class="passo" id="passo"></div>
+
+  <!-- INTRO -->
+  <section class="tela on intro" data-t="intro">
+    <h1>Quando a fome some, <em>o que comer?</em></h1>
+    <p>Responda 6 perguntas rápidas e descubra o seu perfil e as receitas que combinam com o seu novo apetite.</p>
+    <div class="capa-quiz">
+      <img src="img/r08.jpg" alt="Cuscuz com ovo"><img src="img/r21.jpg" alt="PF na medida">
+      <img src="img/r16.jpg" alt="Strogonoff leve"><img src="img/r46.jpg" alt="Açaí proteico">
+    </div>
+    <button class="cta" id="comecar">Começar o teste<small>Leva 1 minuto · grátis</small></button>
+    <div class="mini"><span>⏱️ 1 minuto</span><span>🔒 Sem cadastro</span><span>🇧🇷 Receitas brasileiras</span></div>
+  </section>
+
+  <!-- PERGUNTAS (montadas pelo script) -->
+  <div id="perguntas"></div>
+
+  <!-- CARREGANDO -->
+  <section class="tela carregando" data-t="carregando">
+    <div class="roda"></div>
+    <h2>Montando o seu resultado…</h2>
+    <ul class="etapas">
+      <li>Analisando o seu apetite</li>
+      <li>Vendo os seus maiores desafios</li>
+      <li>Separando as receitas para o seu perfil</li>
+    </ul>
+  </section>
+
+  <!-- RESULTADO -->
+  <section class="tela" data-t="resultado">
+    <span class="selo">✓ Resultado pronto</span>
+    <h2>O livro <em>50 Receitas Fáceis</em> foi feito para o seu perfil</h2>
+    <div class="perfil"><div class="k">Seu perfil</div><h3 id="r-perfil"></h3><p id="r-texto"></p></div>
+    <div class="titulo-rec">O que o livro resolve para você</div>
+    <ul class="resolve" id="r-resolve"></ul>
+    <div class="titulo-rec">3 receitas do livro para começar</div>
+    <div class="recs" id="r-recs"></div>
+    <a class="cta" id="r-cta" href="index.html#oferta">Quero o livro com as 50 receitas<small>Acesso imediato · 3 bônus inclusos</small></a>
+    <div class="garantia">✓ Garantia de 7 dias · Pix ou cartão</div>
+  </section>
+
+  <p class="aviso">Este teste é um guia de receitas e hábitos, não uma avaliação de saúde. Não substitui o seu médico ou nutricionista.</p>
+</main>
+
+<script>
+(function () {
+  // ───── perguntas ─────
+  var P = [
+    { id: "caneta", t: "Você usa alguma canetinha para emagrecer?", d: "Qualquer marca.", o: [
+      ["💉", "Sim, comecei há pouco tempo", "inicio"], ["📅", "Sim, já uso há mais de 3 meses", "veterana"],
+      ["🔜", "Ainda não, mas vou começar", "vai"], ["🙋", "Não, mas quero comer menos com mais proteína", "nao"]] },
+    { id: "apetite", t: "Como anda o seu apetite?", o: [
+      ["😶", "Quase não sinto fome", "minimo"], ["🥄", "Sinto fome, mas encho com 3 garfadas", "enche"],
+      ["🎢", "Varia muito de um dia para o outro", "varia"], ["🙂", "Está normal", "normal"]] },
+    { id: "desafios", multi: true, t: "O que mais acontece com você?", d: "Pode marcar mais de uma.", o: [
+      ["💪", "Tenho medo de perder músculo e ficar flácida", "musculo"], ["🤢", "Enjoo ou estômago sensível", "enjoo"],
+      ["⏭️", "Pulo refeições sem perceber", "pular"], ["🤷", "Não sei o que cozinhar", "ideia"],
+      ["⏱️", "Falta tempo para cozinhar", "tempo"], ["🚽", "Intestino preso", "intestino"]] },
+    { id: "proteina", t: "Você sabe quanta proteína tem no seu prato?", o: [
+      ["❓", "Não faço ideia", "nao"], ["🤏", "Mais ou menos", "mais-menos"], ["📊", "Sei, mas não consigo bater a meta", "nao-bate"]] },
+    { id: "comida", t: "Que tipo de comida você mais gosta?", o: [
+      ["🍛", "Comida brasileira caseira: arroz, feijão, cuscuz", "brasileira"], ["⚡", "Coisas rápidas e práticas", "rapida"],
+      ["🍫", "Não vivo sem um docinho", "doce"], ["🍽️", "De tudo um pouco", "tudo"]] },
+    { id: "cozinha", t: "Quanto tempo você tem para cozinhar?", o: [
+      ["⚡", "Até 15 minutos", "15"], ["🍳", "Uns 30 minutos", "30"], ["📦", "Prefiro cozinhar no domingo e congelar", "domingo"]] }
+  ];
+
+  // receitas com foto (dados reais do livro)
+  var R = {
+    4: ["Crepioca de frango", 26, "10 min"], 8: ["Cuscuz nordestino com ovo", 16, "15 min"], 10: ["Vitamina de banana com aveia", 21, "3 min"],
+    12: ["Escondidinho de batata-doce", 27, "congela bem"], 16: ["Strogonoff de frango leve", 32, "25 min"], 17: ["Salpicão leve de frango", 26, "sem fogão"],
+    20: ["Frango com purê de mandioquinha", 30, "30 min"], 21: ["PF na medida", 27, "25 min"], 22: ["Moqueca leve de peixe", 26, "congela bem"],
+    23: ["Torta de frango de liquidificador", 22, "congela bem"], 26: ["Caldo de frango com gengibre", 17, "dias de enjoo"], 27: ["Creme de abóbora com frango", 18, "dias de enjoo"],
+    28: ["Canja leve", 19, "dias de enjoo"], 33: ["Queijo coalho na airfryer", 13, "10 min"], 36: ["Tapioca de queijo coalho", 10, "5 min"],
+    42: ["Brigadeiro de colher proteico", 15, "10 min"], 46: ["Açaí proteico na tigela", 15, "5 min"]
+  };
+
+  var resp = { desafios: [] }, atual = -1;
+  var box = document.getElementById("perguntas");
+  var track = function (ev, extra) { try { window.fbq && fbq("trackCustom", ev, extra || {}); } catch (e) {} };
+
+  P.forEach(function (p, i) {
+    var s = document.createElement("section");
+    s.className = "tela"; s.dataset.t = "q" + i;
+    var h = "<h2>" + p.t + "</h2>" + (p.d ? "<p class='dica'>" + p.d + "</p>" : "<p class='dica'>&nbsp;</p>");
+    h += "<div class='opc" + (p.multi ? " multi" : "") + "'>";
+    p.o.forEach(function (o) { h += "<button type='button' data-v='" + o[2] + "'><span class='e'>" + o[0] + "</span>" + o[1] + "</button>"; });
+    h += "</div>";
+    if (p.multi) h += "<button class='cta continuar' type='button' disabled>Continuar</button>";
+    if (i > 0) h += "<button class='voltar' type='button'>← Voltar</button>";
+    s.innerHTML = h;
+    s.querySelectorAll(".opc button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (p.multi) {
+          b.classList.toggle("sel");
+          resp[p.id] = [].map.call(s.querySelectorAll(".sel"), function (x) { return x.dataset.v; });
+          s.querySelector(".continuar").disabled = !resp[p.id].length;
+        } else {
+          s.querySelectorAll(".sel").forEach(function (x) { x.classList.remove("sel"); });
+          b.classList.add("sel"); resp[p.id] = b.dataset.v;
+          setTimeout(function () { vai(i + 1); }, 260);
+        }
+      });
+    });
+    if (p.multi) s.querySelector(".continuar").addEventListener("click", function () { vai(i + 1); });
+    if (i > 0) s.querySelector(".voltar").addEventListener("click", function () { vai(i - 1); });
+    box.appendChild(s);
+  });
+
+  function mostra(t) {
+    document.querySelectorAll(".tela").forEach(function (s) { s.classList.toggle("on", s.dataset.t === t); });
+    window.scrollTo(0, 0);
+  }
+  function vai(i) {
+    atual = i;
+    if (i < P.length) {
+      mostra("q" + i);
+      document.getElementById("barra").style.width = (i / P.length * 100) + "%";
+      document.getElementById("passo").textContent = "Pergunta " + (i + 1) + " de " + P.length;
+    } else carrega();
+  }
+  document.getElementById("comecar").addEventListener("click", function () { track("QuizIniciado"); vai(0); });
+
+  function carrega() {
+    document.getElementById("barra").style.width = "100%";
+    document.getElementById("passo").textContent = "";
+    mostra("carregando");
+    var li = document.querySelectorAll(".etapas li");
+    li.forEach(function (x, k) { setTimeout(function () { x.classList.add("ok"); }, 600 + k * 700); });
+    setTimeout(resultado, 2900);
+  }
+
+  function resultado() {
+    var d = resp.desafios || [], tem = function (x) { return d.indexOf(x) > -1; };
+    var perfil, texto;
+    if (tem("musculo") || resp.proteina === "nao-bate") {
+      perfil = "Proteína em risco";
+      texto = "Você come pouco e se preocupa com o músculo. O segredo é cada garfada trazer proteína, sem precisar aumentar o prato.";
+    } else if (tem("enjoo")) {
+      perfil = "Estômago sensível";
+      texto = "Tem dias em que quase nada desce. Você precisa de pratos leves e mornos, que caem bem e ainda nutrem.";
+    } else if (resp.apetite === "minimo" || tem("pular")) {
+      perfil = "Apetite mínimo";
+      texto = "A fome quase sumiu e as refeições acabam ficando para depois. Porções pequenas e fáceis ajudam a não pular refeição.";
+    } else {
+      perfil = "Rotina corrida";
+      texto = "Você quer comer bem, mas sem passar horas na cozinha. Receitas rápidas e que congelam resolvem a sua semana.";
+    }
+    document.getElementById("r-perfil").textContent = perfil;
+    document.getElementById("r-texto").textContent = texto;
+
+    // o que o livro resolve (só o que está de fato no livro)
+    var itens = [];
+    if (tem("musculo") || resp.proteina !== "mais-menos") itens.push(["Proteína calculada em cada receita", "Você vê os gramas de proteína de cada porção, sem conta difícil, e tem a tabela bônus Onde está a proteína."]);
+    if (tem("enjoo")) itens.push(["7 sopas e caldos para os dias de enjoo", "E uma página com o que costuma ajudar e o que piora nesses dias."]);
+    if (tem("pular") || resp.apetite === "minimo") itens.push(["Cardápio de 7 dias (bônus)", "Do café ao jantar, já montado, para você não pular refeição."]);
+    if (tem("ideia") || resp.comida === "brasileira" || resp.comida === "tudo") itens.push(["50 receitas brasileiras com foto", "Cuscuz, PF, strogonoff, moqueca, tapioca… em porção pequena."]);
+    if (tem("tempo") || resp.cozinha === "15") itens.push(["Receitas de até 15 minutos", "Etiquetas até 15 min, sem fogão e airfryer para achar rápido."]);
+    if (resp.cozinha === "domingo") itens.push(["Receitas que congelam", "Cozinhe no domingo e tenha a semana resolvida em porções pequenas."]);
+    if (resp.comida === "doce") itens.push(["6 sobremesas leves", "Brigadeiro de colher proteico, açaí proteico e outras."]);
+    if (tem("intestino")) itens.push(["Receitas com fibras do dia a dia", "Feijão, aveia, legumes. E, se quiser, o adicional Intestino em Dia no checkout."]);
+    if (itens.length < 3) itens.push(["Lista de compras base (bônus)", "A despensa que faz quase todas as receitas, por seção do mercado."]);
+    document.getElementById("r-resolve").innerHTML = itens.slice(0, 4).map(function (x) { return "<li><b>" + x[0] + "</b>" + x[1] + "</li>"; }).join("");
+
+    // 3 receitas por perfil
+    var pool = [];
+    if (tem("musculo")) pool.push(16, 20, 21);
+    if (tem("enjoo")) pool.push(26, 27, 10);
+    if (resp.cozinha === "domingo") pool.push(12, 23, 22);
+    if (resp.cozinha === "15" || tem("tempo")) pool.push(4, 36, 46);
+    if (resp.comida === "doce") pool.push(42, 46);
+    if (resp.comida === "brasileira") pool.push(8, 21, 22);
+    if (resp.apetite === "minimo") pool.push(10, 17);
+    pool.push(8, 16, 21, 4);
+    var vistos = {}, esc = pool.filter(function (n) { if (vistos[n]) return false; vistos[n] = 1; return true; }).slice(0, 3);
+    document.getElementById("r-recs").innerHTML = esc.map(function (n) {
+      var r = R[n], f = "img/r" + (n < 10 ? "0" : "") + n + ".jpg";
+      return "<figure><img src='" + f + "' alt='" + r[0] + "'><figcaption>" + r[0] + "<span>" + r[1] + " g de proteína · " + r[2] + "</span></figcaption></figure>";
+    }).join("");
+
+    // leva os parâmetros do anúncio (utm, fbclid) para a página de vendas
+    document.getElementById("r-cta").href = "index.html" + location.search + "#oferta";
+    track("QuizConcluido", { perfil: perfil });
+    mostra("resultado");
+  }
+})();
+</script>
+</body>
+</html>
