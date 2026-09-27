@@ -85,10 +85,17 @@ p+p{margin-top:14px}
 .hero h1 em{font-style:normal;color:var(--terra)}
 .hero .sub{font-size:19px;margin:20px 0 28px;color:#3B322D;max-width:34em}
 .hero .sub b{color:var(--tinta)}
-.livro{perspective:1400px;display:flex;justify-content:center}
-.livro img{width:min(360px,80vw);border-radius:3px 8px 8px 3px;transform:rotateY(-14deg) rotateX(2deg);
-  box-shadow:-2px 0 0 #d9cbb8 inset,22px 30px 50px -18px rgba(43,36,32,.55),4px 4px 0 #e9dfd1,8px 8px 0 #ddd1c1;transition:transform .5s}
-.livro img:hover{transform:rotateY(-6deg)}
+.livro{perspective:1400px;display:flex;flex-direction:column;align-items:center}
+.slides{position:relative;width:min(360px,80vw);aspect-ratio:900/1273;border-radius:3px 8px 8px 3px;overflow:hidden;background:#fff;cursor:pointer;
+  transform:rotateY(-14deg) rotateX(2deg);transition:transform .5s;
+  box-shadow:22px 30px 50px -18px rgba(43,36,32,.55),4px 4px 0 #e9dfd1,8px 8px 0 #ddd1c1}
+.slides:hover{transform:rotateY(-6deg)}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.slides img.on{opacity:1}
+.legenda{margin-top:22px;background:var(--tinta);color:#fff;font-weight:800;font-size:14px;padding:8px 16px;border-radius:999px;transition:opacity .3s;text-align:center}
+.pontos{display:flex;gap:6px;margin-top:10px}
+.pontos button{width:8px;height:8px;border-radius:50%;border:0;background:#d6c8b5;padding:0;cursor:pointer;transition:width .3s,background .3s}
+.pontos button.on{width:22px;border-radius:99px;background:var(--terra)}
 .pill{display:inline-block;background:#fff;border:1px solid var(--linha);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:800;color:var(--terra);margin-bottom:18px}
 
 /* dor */
@@ -222,7 +229,8 @@ p+p{margin-top:14px}
   .hero{padding:28px 0 48px}
   .hero-grid{grid-template-columns:1fr;gap:28px}
   .hero-grid .livro{order:-1}
-  .livro img{width:min(250px,64vw)}
+  .slides{width:min(250px,64vw)}
+  .legenda{margin-top:16px;font-size:13px}
   .hero .sub{font-size:17px}
   .dores,.tres,.inclui,.quem,.bonus,.autora-grid{grid-template-columns:1fr}
   .autora-grid{gap:26px}
@@ -272,7 +280,20 @@ fbq('track','PageView');
       <a class="cta" href="#oferta">Quero as 50 receitas<small>Acesso imediato · PDF para celular e computador</small></a>
       <div class="selos"><span>Garantia de 7 dias</span><span>Pix ou até <span class="n-parc">8</span>x no cartão</span><span>Receitas com foto</span></div>
     </div>
-    <div class="livro"><img src="img/capa.jpg" alt="Capa do livro 50 Receitas Fáceis para Quem Usa Canetinhas" width="900" height="1273"></div>
+    <div class="livro vitrine">
+      <div class="slides" id="slides" role="img" aria-label="Capa e páginas do livro 50 Receitas Fáceis">
+        <img class="on" src="img/capa.jpg" alt="" data-leg="📖 O livro · 67 páginas" width="900" height="1273">
+        <img src="img/pag-cuscuz.jpg" alt="" data-leg="Cada receita com foto e passo a passo" width="720" height="1019">
+        <img src="img/pag-cafe.jpg" alt="" data-leg="6 capítulos, do café à sobremesa" width="720" height="1019">
+        <img src="img/pag-pf.jpg" alt="" data-leg="Proteína e calorias de cada porção" width="720" height="1019">
+        <img src="img/pag-sopas.jpg" alt="" data-leg="7 sopas para os dias de enjoo" width="720" height="1019">
+        <img src="img/pag-cardapio.jpg" alt="" data-leg="Bônus 1 · Cardápio de 7 dias" width="720" height="1019">
+        <img src="img/pag-lista.jpg" alt="" data-leg="Bônus 2 · Lista de compras" width="720" height="1019">
+        <img src="img/pag-proteina.jpg" alt="" data-leg="Bônus 3 · Onde está a proteína" width="720" height="1019">
+      </div>
+      <div class="legenda" id="legenda">📖 O livro · 67 páginas</div>
+      <div class="pontos" id="pontos"></div>
+    </div>
   </div>
 </header>
 
@@ -610,6 +631,29 @@ var CONFIG = {
 document.getElementById("link-checkout").addEventListener("click",function(){
   if(window.fbq) fbq("track","InitiateCheckout",{value:parseFloat(this.href.indexOf("06m8Y7B")>-1?47:37),currency:"BRL"});
 });
+</script>
+<script>
+// vitrine do topo: capa e páginas do livro trocando sozinhas
+(function () {
+  var imgs = document.querySelectorAll("#slides img"), leg = document.getElementById("legenda"),
+      pontos = document.getElementById("pontos"), i = 0, timer;
+  imgs.forEach(function (_, k) {
+    var b = document.createElement("button");
+    b.type = "button"; b.setAttribute("aria-label", "Ver página " + (k + 1));
+    b.addEventListener("click", function () { vai(k); reinicia(); });
+    pontos.appendChild(b);
+  });
+  function vai(k) {
+    imgs[i].classList.remove("on"); pontos.children[i].classList.remove("on");
+    i = (k + imgs.length) % imgs.length;
+    imgs[i].classList.add("on"); pontos.children[i].classList.add("on");
+    leg.textContent = imgs[i].dataset.leg;
+  }
+  function reinicia() { clearInterval(timer); timer = setInterval(function () { vai(i + 1); }, 2800); }
+  document.getElementById("slides").addEventListener("click", function () { vai(i + 1); reinicia(); });
+  pontos.children[0].classList.add("on");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) reinicia();
+})();
 </script>
 <script>
 (function () {
