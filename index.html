@@ -138,6 +138,21 @@ p+p{margin-top:14px}
 #zoom img{display:block;width:min(900px,100%);margin:0 auto;padding:56px 0 24px}
 #zoom button{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--tinta);font-size:22px;font-weight:800;cursor:pointer}
 
+/* flacidez */
+.motivos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.motivos div{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:22px 20px;position:relative}
+.motivos div:nth-child(2){border:2px solid var(--cta);background:#F2FAF4}
+.motivos .n{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--terra);color:#fff;
+  font-family:var(--serif);font-weight:800;font-size:18px}
+.motivos div:nth-child(2) .n{background:var(--cta)}
+.motivos h3{font-size:21px;margin:12px 0 6px}
+.motivos p{font-size:15.5px;color:#3B322D}
+.ponte{display:flex;gap:26px;align-items:center;justify-content:space-between;background:var(--tinta);color:#F6EDE1;border-radius:20px;padding:26px 28px;margin-top:22px}
+.ponte b{font-family:var(--serif);font-size:24px;color:#fff;display:block;margin-bottom:6px}
+.ponte p{font-size:16px;opacity:.9}
+.ponte .cta{flex:none}
+.nota-f{font-size:13.5px;color:var(--suave);margin-top:14px;text-align:center}
+
 /* autora */
 .autora{background:var(--creme)}
 .autora-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center}
@@ -232,7 +247,9 @@ p+p{margin-top:14px}
   .slides{width:min(250px,64vw)}
   .legenda{margin-top:16px;font-size:13px}
   .hero .sub{font-size:17px}
-  .dores,.tres,.inclui,.quem,.bonus,.autora-grid{grid-template-columns:1fr}
+  .dores,.tres,.inclui,.quem,.bonus,.autora-grid,.motivos{grid-template-columns:1fr}
+  .ponte{flex-direction:column;align-items:stretch;padding:22px 20px}
+  .ponte b{font-size:21px}
   .autora-grid{gap:26px}
   .autora-grid img{width:min(300px,80vw);margin:0 auto}
   .grade-rec{grid-template-columns:1fr 1fr;gap:10px}
@@ -272,7 +289,7 @@ fbq('track','PageView');
       <h1><em>50</em> receitas fáceis para quem usa <em>canetinhas</em></h1>
       <p class="sub">Comida brasileira de verdade, <b>em porções que cabem no seu novo apetite</b>: leve, cheia de proteína e pronta em minutos. Tem cuscuz, tapioca, PF, strogonoff, moqueca e brigadeiro.</p>
       <ul class="checks">
-        <li>Mais proteína em menos comida</li>
+        <li>Proteína em cada prato, aliada contra a flacidez</li>
         <li>Todas com foto e passo a passo</li>
         <li>Sopas leves para os dias de enjoo</li>
         <li>Acesso imediato + 3 bônus</li>
@@ -319,8 +336,32 @@ fbq('track','PageView');
   </div>
 </section>
 
+<!-- ───────────── FLACIDEZ ───────────── -->
+<section class="flacidez">
+  <div class="wrap">
+    <div class="kicker">O que quase ninguém explica</div>
+    <h2>Por que a flacidez aparece <em>quando a gente emagrece?</em></h2>
+    <p class="lead estreito">O peso cai, mas nem tudo o que sai é gordura. Estes são os principais motivos:</p>
+    <div class="motivos">
+      <div><span class="n">1</span><h3>Perda de músculo</h3><p>Parte do peso perdido pode ser músculo, e é ele que dá firmeza ao corpo. Menos músculo, mais aspecto de "murcho".</p></div>
+      <div><span class="n">2</span><h3>Pouca proteína no prato</h3><p>Com pouca fome, a proteína costuma ser a primeira a faltar. E ela é a matéria-prima para manter o músculo.</p></div>
+      <div><span class="n">3</span><h3>Emagrecer muito rápido</h3><p>Quando o peso cai depressa, a pele tem menos tempo para se acomodar ao corpo novo.</p></div>
+      <div><span class="n">4</span><h3>Nenhum exercício de força</h3><p>Musculação, pilates ou exercícios com o peso do corpo avisam ao corpo que o músculo ainda é necessário.</p></div>
+      <div><span class="n">5</span><h3>Idade, colágeno e água</h3><p>Com os anos, a pele produz menos colágeno. Beber pouca água e dormir mal também pesam.</p></div>
+    </div>
+    <div class="ponte">
+      <div class="ponte-t">
+        <b>O motivo nº 2 dá para resolver na cozinha.</b>
+        <p>Cada uma das 50 receitas do livro mostra os gramas de proteína da porção. Assim você come pouco, mas não deixa faltar o que segura o músculo.</p>
+      </div>
+      <a class="cta" href="#oferta">Quero proteína em cada prato<small>50 receitas · acesso imediato</small></a>
+    </div>
+    <p class="nota-f">Comida não faz milagre sozinha: para os outros motivos, exercício de força e acompanhamento médico e nutricional fazem a diferença.</p>
+  </div>
+</section>
+
 <!-- ───────────── AUTORA ───────────── -->
-<section class="autora" hidden>
+<section class="autora">
   <div class="wrap autora-grid">
     <img src="img/ana-santiago.jpg" alt="Ana Santiago na cozinha" width="720" height="900" loading="lazy">
     <div>
@@ -658,7 +699,7 @@ document.getElementById("link-checkout").addEventListener("click",function(){
 <script>
 (function () {
   if (!('IntersectionObserver' in window)) return;
-  var alvos = document.querySelectorAll("section h2, .dores > div, .tres > div, .grade-rec figure, .paginas figure, .bonus article, .quem > div, .autora-grid > *, .garantia, .caixa");
+  var alvos = document.querySelectorAll("section h2, .dores > div, .tres > div, .grade-rec figure, .paginas figure, .motivos > div, .bonus article, .quem > div, .autora-grid > *, .garantia, .caixa");
   document.documentElement.classList.add("js");
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("vis"); io.unobserve(e.target); } });
